@@ -24,6 +24,6 @@ enum MinuteConverter {
     static func singleMinute(from minutes: Int) -> String {
         let max = 4
         let count = minutes % 5
-        return String(repeating: "R", count: count) + String(repeating: "O", count: max - count)
+        return String(repeating: "Y", count: count) + String(repeating: "O", count: max - count)
     }
 }
