@@ -16,7 +16,7 @@ struct HourConverterTests {
     func conversionForSingleHours() {
         let result = HourConverter.convert(0)
         print(result)
-        #expect(result == "RRRR")
+        #expect(result == "0000")
     }
 
 }
