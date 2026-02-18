@@ -16,31 +16,31 @@ struct HourConverterTests {
     struct SingleHourTest {
         @Test("Convert hours to string succeeds when hour is 00")
         func zeroHour() {
-            let result = HourConverter.convert(0)
+            let result = HourConverter.singleHour(from: 0)
             #expect(result == "OOOO")
         }
         
         @Test("Convert hours to string succeeds when hour is 23")
         func twentyThreeHour() {
-            let result = HourConverter.convert(23)
+            let result = HourConverter.singleHour(from: 23)
             #expect(result == "RRRO")
         }
         
         @Test("Convert hours to string succeeds when hour is 02")
         func twoHour() {
-            let result = HourConverter.convert(2)
+            let result = HourConverter.singleHour(from: 2)
             #expect(result == "RROO")
         }
         
         @Test("Convert hours to string succeeds when hour is 08")
         func eightHour() {
-            let result = HourConverter.convert(8)
+            let result = HourConverter.singleHour(from: 8)
             #expect(result == "RRRO")
         }
         
         @Test("Convert hours to string succeeds when hour is 14")
         func forteenHour() {
-            let result = HourConverter.convert(14)
+            let result = HourConverter.singleHour(from: 14)
             #expect(result == "RRRR")
         }
     }

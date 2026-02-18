@@ -18,7 +18,7 @@ import Foundation
 /// 08:23:00    RRRO
 /// 14:35:00    RRRR
 enum HourConverter {
-    static func convert(_ hours: Int) -> String {
+    static func singleHour(from hours: Int) -> String {
         let max = 4
         let count = hours % 5
         return String(repeating: "R", count: count) + String(repeating: "O", count: max - count)
