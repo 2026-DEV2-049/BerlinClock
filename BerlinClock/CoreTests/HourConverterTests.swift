@@ -23,5 +23,23 @@ struct HourConverterTests {
         let result = HourConverter.convert(23)
         #expect(result == "RRRO")
     }
+    
+    @Test("Convert hours to string succeeds when hour is 02")
+    func twoHourForSingleHours() {
+        let result = HourConverter.convert(2)
+        #expect(result == "OOOO")
+    }
+    
+    @Test("Convert hours to string succeeds when hour is 08")
+    func eightHourForSingleHours() {
+        let result = HourConverter.convert(8)
+        #expect(result == "RRRR")
+    }
+    
+    @Test("Convert hours to string succeeds when hour is 14")
+    func forteenHourForSingleHours() {
+        let result = HourConverter.convert(14)
+        #expect(result == "RRRO")
+    }
 
 }
