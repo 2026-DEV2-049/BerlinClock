@@ -9,15 +9,18 @@
 import Foundation
 
 /// Acceptance Criteria
-/// Given I have started the converter
-/// When I enter $time
-/// Then $row is returned for the single hours row
-/// 00:00:00    OOOO
-/// 23:59:59    RRRO
-/// 02:04:00    RROO
-/// 08:23:00    RRRO
-/// 14:35:00    RRRR
+/// The upper row represents 5 hour blocks and is made up of 4 red lamps.
+/// The lower row represents 1 hour blocks and is also made up of 4 red lamps.
 enum HourConverter {
+    /// Acceptance Criteria
+    /// Given I have started the converter
+    /// When I enter $time
+    /// Then $row is returned for the single hours row
+    /// 00:00:00    OOOO
+    /// 23:59:59    RRRO
+    /// 02:04:00    RROO
+    /// 08:23:00    RRRO
+    /// 14:35:00    RRRR
     static func singleHour(from hours: Int) -> String {
         let max = 4
         let count = hours % 5
