@@ -38,8 +38,17 @@ enum MinuteConverter {
     /// 12:35:00    YYRYYRYOOOO
     static func fiveMinutes(from minutes: Int) -> String {
         let max = 11
+        var result = ""
         let count = minutes / 5
-        let redCount = count / 3
-        return String(repeating: "Y", count: count - redCount) + String(repeating: "R", count: redCount) + String(repeating: "O", count: max - (count - redCount))
+        for i in 0..<count {
+            if i == 2 || i == 5 || i == 8 {
+                result.append("R")
+            }
+            else {
+                result.append("Y")
+            }
+        }
+        
+        return result + String(repeating: "O", count: max - count)
     }
 }
