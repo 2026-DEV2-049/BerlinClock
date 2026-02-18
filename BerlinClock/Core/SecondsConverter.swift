@@ -14,6 +14,6 @@ import Foundation
 /// Then $lamp is returned for the seconds lamp
 enum SecondsConverter {
     static func convert(_ seconds: Int) -> String {
-        ""
+        seconds % 2 == 0 ? "Y" : "O"
     }
 }
