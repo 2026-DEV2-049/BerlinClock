@@ -26,4 +26,20 @@ enum MinuteConverter {
         let count = minutes % 5
         return String(repeating: "Y", count: count) + String(repeating: "O", count: max - count)
     }
+    
+    /// Acceptance Criteria
+    /// Given I have started the converter
+    /// When I enter $time
+    /// Then $row is returned for the five minutes row
+    /// 00:00:00    OOOOOOOOOOO
+    /// 23:59:59    YYRYYRYYRYY
+    /// 12:04:00    OOOOOOOOOOO
+    /// 12:23:00    YYRYOOOOOOO
+    /// 12:35:00    YYRYYRYOOOO
+    static func fiveMinutes(from minutes: Int) -> String {
+        let max = 11
+        let count = minutes / 5
+        let redCount = count / 3
+        return String(repeating: "Y", count: count - redCount) + String(repeating: "R", count: redCount) + String(repeating: "O", count: max - (count - redCount))
+    }
 }
