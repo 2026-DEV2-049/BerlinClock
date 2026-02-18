@@ -12,34 +12,40 @@ import Foundation
 
 struct HourConverterTests {
 
-    @Test("Convert hours to string succeeds when hour is 00")
-    func zeroHourForSingleHours() {
-        let result = HourConverter.convert(0)
-        #expect(result == "OOOO")
+    @Suite("Single Hour")
+    struct SingleHourTest {
+        @Test("Convert hours to string succeeds when hour is 00")
+        func zeroHour() {
+            let result = HourConverter.convert(0)
+            #expect(result == "OOOO")
+        }
+        
+        @Test("Convert hours to string succeeds when hour is 23")
+        func twentyThreeHour() {
+            let result = HourConverter.convert(23)
+            #expect(result == "RRRO")
+        }
+        
+        @Test("Convert hours to string succeeds when hour is 02")
+        func twoHour() {
+            let result = HourConverter.convert(2)
+            #expect(result == "RROO")
+        }
+        
+        @Test("Convert hours to string succeeds when hour is 08")
+        func eightHour() {
+            let result = HourConverter.convert(8)
+            #expect(result == "RRRO")
+        }
+        
+        @Test("Convert hours to string succeeds when hour is 14")
+        func forteenHour() {
+            let result = HourConverter.convert(14)
+            #expect(result == "RRRR")
+        }
     }
     
-    @Test("Convert hours to string succeeds when hour is 23")
-    func twentyThreeHourForSingleHours() {
-        let result = HourConverter.convert(23)
-        #expect(result == "RRRO")
+    @Suite("Five Hour")
+    struct FiveHourTest {
     }
-    
-    @Test("Convert hours to string succeeds when hour is 02")
-    func twoHourForSingleHours() {
-        let result = HourConverter.convert(2)
-        #expect(result == "RROO")
-    }
-    
-    @Test("Convert hours to string succeeds when hour is 08")
-    func eightHourForSingleHours() {
-        let result = HourConverter.convert(8)
-        #expect(result == "RRRO")
-    }
-    
-    @Test("Convert hours to string succeeds when hour is 14")
-    func forteenHourForSingleHours() {
-        let result = HourConverter.convert(14)
-        #expect(result == "RRRR")
-    }
-
 }
