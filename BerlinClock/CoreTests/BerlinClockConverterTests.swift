@@ -10,33 +10,33 @@ import Testing
 import Foundation
 @testable import Core
 
-struct BerlinClockRulesTests {
+struct BerlinClockConverterTests {
 
     @Test("Convert date to BerlinClock succeds with 00:00:00")
     func zeroTime() {
         let date = DateFactory.create(hour: 0, minute: 0, second: 0)
-        let berlinClock = BerlinClockRules.berlinClock(from: date)
+        let berlinClock = BerlinClockConverter.berlinClock(from: date)
         #expect(berlinClock.fullString == "YOOOOOOOOOOOOOOOOOOOOOOO")
     }
 
     @Test("Convert date to BerlinClock succeds with 23:59:59")
     func oneSecondBeforeMidnight() {
         let date = DateFactory.create(hour: 23, minute: 59, second: 59)
-        let berlinClock = BerlinClockRules.berlinClock(from: date)
+        let berlinClock = BerlinClockConverter.berlinClock(from: date)
         #expect(berlinClock.fullString == "ORRRRRRROYYRYYRYYRYYYYYY")
     }
     
     @Test("Convert date to BerlinClock succeds with 16:50:06")
     func fourPMFiftyMinutesAndSixSecond() {
         let date = DateFactory.create(hour: 16, minute: 50, second: 06)
-        let berlinClock = BerlinClockRules.berlinClock(from: date)
+        let berlinClock = BerlinClockConverter.berlinClock(from: date)
         #expect(berlinClock.fullString == "YRRROROOOYYRYYRYYRYOOOOO")
     }
     
     @Test("Convert date to BerlinClock succeds with 11:37:01")
     func elevenHoursThirtySevenMinutesAndOneSecond() {
         let date = DateFactory.create(hour: 11, minute: 37, second: 01)
-        let berlinClock = BerlinClockRules.berlinClock(from: date)
+        let berlinClock = BerlinClockConverter.berlinClock(from: date)
         #expect(berlinClock.fullString == "ORROOROOOYYRYYRYOOOOYYOO")
     }
 }

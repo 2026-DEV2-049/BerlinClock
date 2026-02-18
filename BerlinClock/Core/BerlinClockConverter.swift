@@ -11,7 +11,7 @@ import Foundation
 /// Acceptance Criteria
 /// Converting Digital Time to Berlin Time.
 /// Converting Berlin Time to Digital Time
-public enum BerlinClockRules {
+public enum BerlinClockConverter {
     /// So what we want first is a way to get a textual representation of a Berlin Clock time based on a digital time. This is so we can use this converter everywhere, all we have to do is hook up a frontend. We're going to be going over the clock row by row to make things clearer and ensure we get everything right first time.
     /// 00:00:00    YOOOOOOOOOOOOOOOOOOOOOOO
     /// 23:59:59    ORRRRRRROYYRYYRYYRYYYYYY
