@@ -50,7 +50,7 @@ struct HourConverterTests {
         @Test("Convert hours to string succeeds when hour is 00")
         func zeroHour() {
             let result = HourConverter.fiveHour(from: 0)
-            #expect(result == "OOOO")
+            #expect(result == "OOOR")
         }
         
         @Test("Convert hours to string succeeds when hour is 23")

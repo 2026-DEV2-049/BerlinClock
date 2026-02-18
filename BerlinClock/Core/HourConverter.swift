@@ -37,6 +37,8 @@ enum HourConverter {
     /// 08:23:00    ROOO
     /// 16:35:00    RRRO
     static func fiveHour(from hours: Int) -> String {
-        ""
+        let max = 4
+        let count = hours / 5
+        return String(repeating: "R", count: count) + String(repeating: "O", count: max - count)
     }
 }
