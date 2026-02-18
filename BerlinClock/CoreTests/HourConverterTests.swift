@@ -18,5 +18,12 @@ struct HourConverterTests {
         print(result)
         #expect(result == "0000")
     }
+    
+    @Test("Convert hours to string succeeds when hour is 23")
+    func twentyThreeHourForSingleHours() {
+        let result = HourConverter.convert(0)
+        print(result)
+        #expect(result == "RRRO")
+    }
 
 }
