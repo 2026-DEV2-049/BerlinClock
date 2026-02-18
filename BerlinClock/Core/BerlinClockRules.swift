@@ -18,7 +18,7 @@ public enum BerlinClockRules {
     }
     
     /// The change to using Berlin Time has gone so well that we've decided to introduce it everywhere, from the clocks on the microwaves to the company-approved wristwatches. Unfortunately, people are having trouble quickly deciphering the current time which is having a detrimental effect on productivity. As such, we need to create a converter that takes a Berlin Time and returns a Digital Time.
-    static func date(from berlinClock: BerlinClock) -> Date {
+    static public func date(from berlinClock: BerlinClock) -> Date {
         return Date()
     }
 }
