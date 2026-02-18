@@ -12,8 +12,8 @@ import Foundation
 
 struct HourConverterTests {
 
-    @Test("Convert hours to string succeeds")
-    func conversionForSingleHours() {
+    @Test("Convert hours to string succeeds when hour is 00")
+    func zeroHourForSingleHours() {
         let result = HourConverter.convert(0)
         print(result)
         #expect(result == "0000")
