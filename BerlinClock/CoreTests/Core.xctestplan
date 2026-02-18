@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "0534539E-6C9F-4AC0-A6B2-5BC116F52AC7",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:BerlinClock.xcodeproj",
+        "identifier" : "1ADB68882F4618CE000AEE76",
+        "name" : "CoreTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -7,12 +7,16 @@
 
 
 import Testing
+import Foundation
 @testable import Core
 
 struct CoreTests {
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    @Test("Convert date to BerlinClock fails")
+    func firstTest() {
+        let date = Date()
+        let berlinClock = BerlinClockRules.berlinClock(from: date)
+        #expect(berlinClock.seconds == "")
     }
 
 }
