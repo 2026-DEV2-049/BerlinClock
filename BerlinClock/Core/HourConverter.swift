@@ -22,8 +22,7 @@ enum HourConverter {
     /// 08:23:00    RRRO
     /// 14:35:00    RRRR
     static func singleHour(from hours: Int) -> String {
-        let count = hours % 5
-        return createString(from: count)
+        createString(from: hours % 5)
     }
     
     /// Acceptance Criteria
@@ -36,8 +35,7 @@ enum HourConverter {
     /// 08:23:00    ROOO
     /// 16:35:00    RRRO
     static func fiveHour(from hours: Int) -> String {
-        let count = hours / 5
-        return createString(from: count)
+        createString(from: hours / 5)
     }
     
     private static func createString(from count: Int) -> String {
