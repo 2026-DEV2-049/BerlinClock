@@ -12,7 +12,7 @@ import Foundation
 
 struct SecondsConverterTests {
 
-    @Test("Convert seconds to string succeeds for even seocnds")
+    @Test("Convert seconds to string succeeds for even seconds")
     func conversionForEvenSeconds() {
         for i in stride(from: 0, to: 59, by: 2) {
             let result = SecondsConverter.convert(i)
@@ -20,9 +20,9 @@ struct SecondsConverterTests {
         }
     }
 
-    @Test("Convert seconds to string succeeds for odd seocnds")
-    func conversionForEvenSeconds() {
-        for i in stride(from: 0, to: 59, by: 2) {
+    @Test("Convert seconds to string succeeds for odd seconds")
+    func conversionForOddSeconds() {
+        for i in stride(from: 1, to: 59, by: 2) {
             let result = SecondsConverter.convert(i)
             #expect(result == "O")
         }
