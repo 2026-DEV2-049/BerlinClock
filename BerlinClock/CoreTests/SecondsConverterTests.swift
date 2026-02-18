@@ -22,7 +22,7 @@ struct SecondsConverterTests {
 
     @Test("Convert seconds to string succeeds for odd seconds")
     func conversionForOddSeconds() {
-        for i in stride(from: 1, to: 59, by: 2) {
+        for i in stride(from: 1, to: 60, by: 2) {
             let result = SecondsConverter.convert(i)
             #expect(result == "O")
         }
