@@ -1,0 +1,21 @@
+//
+//  HourConverterTests.swift
+//  BerlinClock
+//
+//  Created by 2026-DEV2-049 on 18/02/2026.
+//
+
+
+import Testing
+import Foundation
+@testable import Core
+
+struct HourConverterTests {
+
+    @Test("Convert hours to string succeeds")
+    func conversionForSingleHours() {
+        let result = HourConverter.convert(1000)
+        #expect(result == "")
+    }
+
+}
