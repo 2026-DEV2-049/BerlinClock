@@ -12,8 +12,12 @@ import Foundation
 
 struct MinuteConverterTests {
 
-    @Test func firstFunc() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    @Suite("Single Minute")
+    struct SingleMinuteTest {
+        @Test("Convert hours to string succeeds when minute is 00")
+        func zeroMinute() {
+            let result = MinuteConverter.singleMinute(from: 0)
+            #expect(result == "OOOO")
+        }
     }
-
 }
