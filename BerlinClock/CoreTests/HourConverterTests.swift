@@ -50,31 +50,31 @@ struct HourConverterTests {
         @Test("Convert hours to string succeeds when hour is 00")
         func zeroHour() {
             let result = HourConverter.fiveHour(from: 0)
-            #expect(result == "OOOR")
+            #expect(result == "OOOO")
         }
         
         @Test("Convert hours to string succeeds when hour is 23")
         func twentyThreeHour() {
             let result = HourConverter.fiveHour(from: 23)
-            #expect(result == "RRRO")
+            #expect(result == "RRRR")
         }
         
         @Test("Convert hours to string succeeds when hour is 02")
         func twoHour() {
             let result = HourConverter.fiveHour(from: 2)
-            #expect(result == "RROO")
+            #expect(result == "OOOO")
         }
         
         @Test("Convert hours to string succeeds when hour is 08")
         func eightHour() {
             let result = HourConverter.fiveHour(from: 8)
-            #expect(result == "RRRO")
+            #expect(result == "ROOO")
         }
         
-        @Test("Convert hours to string succeeds when hour is 14")
+        @Test("Convert hours to string succeeds when hour is 16")
         func forteenHour() {
-            let result = HourConverter.fiveHour(from: 14)
-            #expect(result == "RRRR")
+            let result = HourConverter.fiveHour(from: 16)
+            #expect(result == "RRRO")
         }
     }
 }
