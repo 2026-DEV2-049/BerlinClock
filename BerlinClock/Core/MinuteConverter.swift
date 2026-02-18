@@ -41,7 +41,7 @@ enum MinuteConverter {
         var result = ""
         let count = minutes / 5
         for i in 0..<count {
-            if i == 2 || i == 5 || i == 8 {
+            if (i+1).isMultiple(of: 3) {
                 result.append("R")
             }
             else {
