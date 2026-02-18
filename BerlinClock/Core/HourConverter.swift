@@ -21,7 +21,7 @@ enum HourConverter {
     /// 02:04:00    RROO
     /// 08:23:00    RRRO
     /// 14:35:00    RRRR
-    static func singleHour(from hours: Int) -> String {
+    static func singleHourString(from hours: Int) -> String {
         createString(from: hours % 5)
     }
     
@@ -34,7 +34,7 @@ enum HourConverter {
     /// 02:04:00    OOOO
     /// 08:23:00    ROOO
     /// 16:35:00    RRRO
-    static func fiveHour(from hours: Int) -> String {
+    static func fiveHourString(from hours: Int) -> String {
         createString(from: hours / 5)
     }
     

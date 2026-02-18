@@ -16,31 +16,31 @@ struct MinuteConverterTests {
     struct SingleMinuteTest {
         @Test("Convert hours to string succeeds when minute is 00")
         func zeroMinute() {
-            let result = MinuteConverter.singleMinute(from: 0)
+            let result = MinuteConverter.singleMinuteString(from: 0)
             #expect(result == "OOOO")
         }
         
         @Test("Convert hours to string succeeds when minute is 59")
         func fiftyNineMinute() {
-            let result = MinuteConverter.singleMinute(from: 59)
+            let result = MinuteConverter.singleMinuteString(from: 59)
             #expect(result == "YYYY")
         }
         
         @Test("Convert hours to string succeeds when minute is 32")
         func thirtyTwoMinute() {
-            let result = MinuteConverter.singleMinute(from: 32)
+            let result = MinuteConverter.singleMinuteString(from: 32)
             #expect(result == "YYOO")
         }
         
         @Test("Convert hours to string succeeds when minute is 34")
         func thirtyFourMinute() {
-            let result = MinuteConverter.singleMinute(from: 34)
+            let result = MinuteConverter.singleMinuteString(from: 34)
             #expect(result == "YYYY")
         }
         
         @Test("Convert hours to string succeeds when minute is 35")
         func thirtyFiveMinute() {
-            let result = MinuteConverter.singleMinute(from: 35)
+            let result = MinuteConverter.singleMinuteString(from: 35)
             #expect(result == "OOOO")
         }
     }
@@ -49,31 +49,31 @@ struct MinuteConverterTests {
     struct FiveMinuteTest {
         @Test("Convert hours to string succeeds when minute is 00")
         func zeroMinute() {
-            let result = MinuteConverter.fiveMinutes(from: 0)
+            let result = MinuteConverter.fiveMinuteString(from: 0)
             #expect(result == "OOOOOOOOOOO")
         }
         
         @Test("Convert hours to string succeeds when minute is 59")
         func fiftyNineMinute() {
-            let result = MinuteConverter.fiveMinutes(from: 59)
+            let result = MinuteConverter.fiveMinuteString(from: 59)
             #expect(result == "YYRYYRYYRYY")
         }
         
         @Test("Convert hours to string succeeds when minute is 04")
         func fourMinute() {
-            let result = MinuteConverter.fiveMinutes(from: 4)
+            let result = MinuteConverter.fiveMinuteString(from: 4)
             #expect(result == "OOOOOOOOOOO")
         }
         
         @Test("Convert hours to string succeeds when minute is 23")
         func thirtyTwoMinute() {
-            let result = MinuteConverter.fiveMinutes(from: 23)
+            let result = MinuteConverter.fiveMinuteString(from: 23)
             #expect(result == "YYRYOOOOOOO")
         }
         
         @Test("Convert hours to string succeeds when minute is 35")
         func thirtyFiveMinute() {
-            let result = MinuteConverter.fiveMinutes(from: 35)
+            let result = MinuteConverter.fiveMinuteString(from: 35)
             #expect(result == "YYRYYRYOOOO")
         }
     }

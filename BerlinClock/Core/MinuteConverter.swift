@@ -21,7 +21,7 @@ enum MinuteConverter {
     /// 12:32:00    YYOO
     /// 12:34:00    YYYY
     /// 12:35:00    OOOO
-    static func singleMinute(from minutes: Int) -> String {
+    static func singleMinuteString(from minutes: Int) -> String {
         let max = 4
         let count = minutes % 5
         return String(repeating: "Y", count: count) + String(repeating: "O", count: max - count)
@@ -36,7 +36,7 @@ enum MinuteConverter {
     /// 12:04:00    OOOOOOOOOOO
     /// 12:23:00    YYRYOOOOOOO
     /// 12:35:00    YYRYYRYOOOO
-    static func fiveMinutes(from minutes: Int) -> String {
+    static func fiveMinuteString(from minutes: Int) -> String {
         let max = 11
         var result = ""
         let count = minutes / 5

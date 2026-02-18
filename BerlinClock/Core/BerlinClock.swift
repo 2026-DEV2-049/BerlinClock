@@ -10,20 +10,20 @@ import Foundation
 
 public struct BerlinClock {
     public let seconds: String
-    public let singleMinutes: String
-    public let fiveMinutes: String
-    public let singleHours: String
-    public let fiveHours: String
+    public let singleMinute: String
+    public let fiveMinute: String
+    public let singleHour: String
+    public let fiveHour: String
     
     public var fullString: String {
-        seconds + fiveHours + singleHours + fiveMinutes + singleMinutes
+        seconds + fiveHour + singleHour + fiveMinute + singleMinute
     }
     
-    init(seconds: String, singleMinutes: String, fiveMinutes: String, singleHours: String, fiveHours: String) {
+    init(seconds: String, singleMinute: String, fiveMinute: String, singleHour: String, fiveHour: String) {
         self.seconds = seconds
-        self.singleMinutes = singleMinutes
-        self.fiveMinutes = fiveMinutes
-        self.singleHours = singleHours
-        self.fiveHours = fiveHours
+        self.singleMinute = singleMinute
+        self.fiveMinute = fiveMinute
+        self.singleHour = singleHour
+        self.fiveHour = fiveHour
     }
 }

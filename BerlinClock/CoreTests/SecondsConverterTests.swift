@@ -15,7 +15,7 @@ struct SecondsConverterTests {
     @Test("Convert seconds to string succeeds for even seconds")
     func conversionForEvenSeconds() {
         for i in stride(from: 0, to: 59, by: 2) {
-            let result = SecondsConverter.convert(i)
+            let result = SecondsConverter.string(from: i)
             #expect(result == "Y")
         }
     }
@@ -23,7 +23,7 @@ struct SecondsConverterTests {
     @Test("Convert seconds to string succeeds for odd seconds")
     func conversionForOddSeconds() {
         for i in stride(from: 1, to: 60, by: 2) {
-            let result = SecondsConverter.convert(i)
+            let result = SecondsConverter.string(from: i)
             #expect(result == "O")
         }
     }
