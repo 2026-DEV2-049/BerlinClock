@@ -22,9 +22,8 @@ enum HourConverter {
     /// 08:23:00    RRRO
     /// 14:35:00    RRRR
     static func singleHour(from hours: Int) -> String {
-        let max = 4
         let count = hours % 5
-        return String(repeating: "R", count: count) + String(repeating: "O", count: max - count)
+        return createString(from: count)
     }
     
     /// Acceptance Criteria
@@ -37,8 +36,12 @@ enum HourConverter {
     /// 08:23:00    ROOO
     /// 16:35:00    RRRO
     static func fiveHour(from hours: Int) -> String {
-        let max = 4
         let count = hours / 5
+        return createString(from: count)
+    }
+    
+    private static func createString(from count: Int) -> String {
+        let max = 4
         return String(repeating: "R", count: count) + String(repeating: "O", count: max - count)
     }
 }
