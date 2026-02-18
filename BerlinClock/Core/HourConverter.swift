@@ -26,4 +26,17 @@ enum HourConverter {
         let count = hours % 5
         return String(repeating: "R", count: count) + String(repeating: "O", count: max - count)
     }
+    
+    /// Acceptance Criteria
+    /// Given I have started the converter
+    /// When I enter $time
+    /// Then $row is returned for the five hours row
+    /// 00:00:00    OOOO
+    /// 23:59:59    RRRR
+    /// 02:04:00    OOOO
+    /// 08:23:00    ROOO
+    /// 16:35:00    RRRO
+    static func fiveHour(from hours: Int) -> String {
+        ""
+    }
 }
