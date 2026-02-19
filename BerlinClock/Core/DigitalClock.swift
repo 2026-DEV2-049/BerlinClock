@@ -28,6 +28,7 @@ public struct DigitalClock {
     ///   - hours: The number of hours in 24 hours format. Values outside the range range 0-24 throws
     ///   - minutes: The number of minutes. Values outside the range range 0-60 throws
     ///   - seconds: The number of seconds. Values outside the range range 0-60 throws
+    /// - Throws: An error if any of the input values are invalid (e.g., negative values or out-of-range).
     public init(hours: Int, minutes: Int, seconds: Int) throws {
         guard hours < 24 && hours >= 0 else { throw Error.hours(.outOfBond) }
         self.hours = hours
