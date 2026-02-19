@@ -24,10 +24,10 @@ public struct DigitalClock {
     }
     
     public init(hours: Int, minutes: Int, seconds: Int) throws {
-        guard hours <= 24 else { throw Error.hours(.outOfBond) }
+        guard hours < 24 else { throw Error.hours(.outOfBond) }
         self.hours = hours
         
-        guard minutes <= 60 else { throw Error.minutes(.outOfBond) }
+        guard minutes < 60 else { throw Error.minutes(.outOfBond) }
         self.minutes = minutes
         
         guard seconds < 60 else { throw Error.seconds(.outOfBond) }
