@@ -36,7 +36,7 @@ public enum BerlinClockConverter {
     /// ORRRRRRROYYRYYRYYRYYYYYY    23:59:59
     /// YRRROROOOYYRYYRYYRYOOOOO    16:50:06
     /// ORROOROOOYYRYYRYOOOOYYOO    11:37:01
-    static public func date(from berlinClock: BerlinClock) -> DigitalClock {
-        DigitalClock(hours: 0, minutes: 0, seconds: 0)
+    static public func date(from berlinClock: BerlinClock) throws -> DigitalClock {
+        try DigitalClock(hours: 0, minutes: 0, seconds: 0)
     }
 }
