@@ -29,4 +29,23 @@ struct BerlinClockTests {
             }
         }
     }
+    
+    @Suite("Minutes init")
+    struct MinutesTests {
+        @Test("Throws invalid count")
+        func InvalidSingleMinuteCount() {
+            #expect(throws: BerlinClock.Error.seconds(.invalidCount)) {
+                let invalidMinuteCount = "YY"
+                _ = try BerlinClock(seconds: "Y", singleMinute: invalidMinuteCount, fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
+            }
+        }
+        
+        @Test("Throws invalid character")
+        func InvalidSingleMinuteCharacter() {
+            #expect(throws: BerlinClock.Error.seconds(.invalidCharacters)) {
+                let invalidMinuteCharacter = "ZZZZ"
+                _ = try BerlinClock(seconds: "Y", singleMinute: invalidMinuteCharacter, fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
+            }
+        }
+    }
 }
