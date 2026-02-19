@@ -17,7 +17,7 @@ struct BerlinClockTests {
         func InvalidSecondLength() {
             #expect(throws: BerlinClock.Error.seconds(.invalidLength)) {
                 let invalidSecondCount = "YY"
-                _ = try BerlinClock(seconds: invalidSecondCount, singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
+                _ = try BerlinClock(seconds: invalidSecondCount, singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "OOOO", fiveHour: "OOOO")
             }
         }
         
@@ -25,7 +25,7 @@ struct BerlinClockTests {
         func InvalidSecondCharacter() {
             #expect(throws: BerlinClock.Error.seconds(.invalidCharacters)) {
                 let invalidSecondCharacter = "Z"
-                _ = try BerlinClock(seconds: invalidSecondCharacter, singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
+                _ = try BerlinClock(seconds: invalidSecondCharacter, singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "OOOO", fiveHour: "OOOO")
             }
         }
     }
@@ -38,7 +38,7 @@ struct BerlinClockTests {
             func InvalidSingleMinuteLength() {
                 #expect(throws: BerlinClock.Error.singleMinute(.invalidLength)) {
                     let invalidMinuteLength = "YY"
-                    _ = try BerlinClock(seconds: "Y", singleMinute: invalidMinuteLength, fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
+                    _ = try BerlinClock(seconds: "Y", singleMinute: invalidMinuteLength, fiveMinute: "OOOOOOOOOOO", singleHour: "OOOO", fiveHour: "OOOO")
                 }
             }
             
@@ -46,7 +46,7 @@ struct BerlinClockTests {
             func InvalidSingleMinuteCharacter() {
                 #expect(throws: BerlinClock.Error.singleMinute(.invalidCharacters)) {
                     let invalidMinuteCharacter = "ZZZZ"
-                    _ = try BerlinClock(seconds: "Y", singleMinute: invalidMinuteCharacter, fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
+                    _ = try BerlinClock(seconds: "Y", singleMinute: invalidMinuteCharacter, fiveMinute: "OOOOOOOOOOO", singleHour: "OOOO", fiveHour: "OOOO")
                 }
             }
         }
@@ -57,7 +57,7 @@ struct BerlinClockTests {
             func InvalidSingleMinuteLength() {
                 #expect(throws: BerlinClock.Error.fiveMinute(.invalidLength)) {
                     let invalidMinuteLength = "YY"
-                    _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: invalidMinuteLength, singleHour: "0000", fiveHour: "0000")
+                    _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: invalidMinuteLength, singleHour: "OOOO", fiveHour: "OOOO")
                 }
             }
             
@@ -65,7 +65,7 @@ struct BerlinClockTests {
             func InvalidFiveMinuteCharacter() {
                 #expect(throws: BerlinClock.Error.fiveMinute(.invalidCharacters)) {
                     let invalidMinuteCharacter = "ZZZZZZZZZZZ"
-                    _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: invalidMinuteCharacter, singleHour: "0000", fiveHour: "0000")
+                    _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: invalidMinuteCharacter, singleHour: "OOOO", fiveHour: "OOOO")
                 }
             }
         }
@@ -79,7 +79,7 @@ struct BerlinClockTests {
             func InvalidSingleHourLength() {
                 #expect(throws: BerlinClock.Error.singleHour(.invalidLength)) {
                     let invalidHourLength = "YY"
-                    _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: invalidHourLength, fiveHour: "0000")
+                    _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: invalidHourLength, fiveHour: "OOOO")
                 }
             }
             
@@ -87,7 +87,7 @@ struct BerlinClockTests {
             func InvalidSingleHourCharacter() {
                 #expect(throws: BerlinClock.Error.singleHour(.invalidCharacters)) {
                     let invalidHourCharacter = "ZZZZ"
-                    _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: invalidHourCharacter, fiveHour: "0000")
+                    _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: invalidHourCharacter, fiveHour: "OOOO")
                 }
             }
         }
@@ -98,15 +98,15 @@ struct BerlinClockTests {
             func InvalidFiveHourLength() {
                 #expect(throws: BerlinClock.Error.fiveHour(.invalidLength)) {
                     let invalidHourLength = "YY"
-                    _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: invalidHourLength)
+                    _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "OOOO", fiveHour: invalidHourLength)
                 }
             }
             
             @Test("Throws invalid character")
             func InvalidFiveHourCharacter() {
                 #expect(throws: BerlinClock.Error.fiveHour(.invalidCharacters)) {
-                    let invalidHourCharacter = "ZZZZZZZZZZZ"
-                    _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: invalidHourCharacter)
+                    let invalidHourCharacter = "ZZZZ"
+                    _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "OOOO", fiveHour: invalidHourCharacter)
                 }
             }
         }
