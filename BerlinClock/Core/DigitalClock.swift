@@ -30,7 +30,7 @@ public struct DigitalClock {
         guard minutes <= 60 else { throw Error.minutes(.outOfBond) }
         self.minutes = minutes
         
-        guard seconds <= 60 else { throw Error.seconds(.outOfBond) }
+        guard seconds < 60 else { throw Error.seconds(.outOfBond) }
         self.seconds = seconds
     }
 }
