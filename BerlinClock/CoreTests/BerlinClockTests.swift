@@ -16,16 +16,16 @@ struct BerlinClockTests {
         @Test("Throws invalid count")
         func InvalidSecondCount() {
             #expect(throws: BerlinClock.Error.seconds(.invalidCount)) {
-                let InvalidSecondCount = "YY"
-                _ = try BerlinClock(seconds: InvalidSecondCount, singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
+                let invalidSecondCount = "YY"
+                _ = try BerlinClock(seconds: invalidSecondCount, singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
             }
         }
         
         @Test("Throws invalid character")
-        func InvalidSecondCount() {
-            #expect(throws: BerlinClock.Error.seconds(.invalidCount)) {
-                let InvalidSecondCharacter = "XYZ"
-                _ = try BerlinClock(seconds: InvalidSecondCount, singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
+        func InvalidSecondCharacter() {
+            #expect(throws: BerlinClock.Error.seconds(.invalidCharacters)) {
+                let invalidSecondCharacter = "Z"
+                _ = try BerlinClock(seconds: invalidSecondCharacter, singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
             }
         }
     }
