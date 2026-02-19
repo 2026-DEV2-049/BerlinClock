@@ -77,7 +77,7 @@ struct BerlinClockTests {
         struct SingleHourTests {
             @Test("Throws invalid length")
             func InvalidSingleHourLength() {
-                #expect(throws: BerlinClock.Error.singleMinute(.invalidLength)) {
+                #expect(throws: BerlinClock.Error.singleHour(.invalidLength)) {
                     let invalidHourLength = "YY"
                     _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: invalidHourLength, fiveHour: "0000")
                 }
@@ -85,18 +85,18 @@ struct BerlinClockTests {
             
             @Test("Throws invalid character")
             func InvalidSingleHourCharacter() {
-                #expect(throws: BerlinClock.Error.singleMinute(.invalidCharacters)) {
+                #expect(throws: BerlinClock.Error.singleHour(.invalidCharacters)) {
                     let invalidHourCharacter = "ZZZZ"
                     _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: invalidHourCharacter, fiveHour: "0000")
                 }
             }
         }
         
-        @Suite("Five Minutes init")
+        @Suite("Five hours init")
         struct FiveHourTests {
             @Test("Throws invalid length")
-            func InvalidSingleHourLength() {
-                #expect(throws: BerlinClock.Error.fiveMinute(.invalidLength)) {
+            func InvalidFiveHourLength() {
+                #expect(throws: BerlinClock.Error.fiveHour(.invalidLength)) {
                     let invalidHourLength = "YY"
                     _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: invalidHourLength)
                 }
@@ -104,7 +104,7 @@ struct BerlinClockTests {
             
             @Test("Throws invalid character")
             func InvalidFiveHourCharacter() {
-                #expect(throws: BerlinClock.Error.fiveMinute(.invalidCharacters)) {
+                #expect(throws: BerlinClock.Error.fiveHour(.invalidCharacters)) {
                     let invalidHourCharacter = "ZZZZZZZZZZZ"
                     _ = try BerlinClock(seconds: "Y", singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: invalidHourCharacter)
                 }
