@@ -34,7 +34,7 @@ struct BerlinClockTests {
     struct MinutesTests {
         @Test("Throws invalid count")
         func InvalidSingleMinuteCount() {
-            #expect(throws: BerlinClock.Error.seconds(.invalidCount)) {
+            #expect(throws: BerlinClock.Error.singleMinute(.invalidCount)) {
                 let invalidMinuteCount = "YY"
                 _ = try BerlinClock(seconds: "Y", singleMinute: invalidMinuteCount, fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
             }
@@ -42,7 +42,7 @@ struct BerlinClockTests {
         
         @Test("Throws invalid character")
         func InvalidSingleMinuteCharacter() {
-            #expect(throws: BerlinClock.Error.seconds(.invalidCharacters)) {
+            #expect(throws: BerlinClock.Error.singleMinute(.invalidCharacters)) {
                 let invalidMinuteCharacter = "ZZZZ"
                 _ = try BerlinClock(seconds: "Y", singleMinute: invalidMinuteCharacter, fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
             }

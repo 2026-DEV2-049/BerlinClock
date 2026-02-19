@@ -37,8 +37,8 @@ public struct BerlinClock {
         guard Self.isComposedOnlyOfSpecificLetters(seconds, allowedLetters: "YO") else { throw Error.seconds(.invalidCharacters) }
         self.seconds = seconds
         
-        guard singleMinute.count == 5 else { throw Error.singleMinute(.invalidCount) }
-        guard Self.isComposedOnlyOfSpecificLetters(singleMinute, allowedLetters: "RRROOOO") else { throw Error.singleMinute(.invalidCharacters) }
+        guard singleMinute.count == 4 else { throw Error.singleMinute(.invalidCount) }
+        guard Self.isComposedOnlyOfSpecificLetters(singleMinute, allowedLetters: "OY") else { throw Error.singleMinute(.invalidCharacters) }
         self.singleMinute = singleMinute
         
         guard fiveMinute.count == 5 else { throw Error.fiveMinute(.invalidCount) }
