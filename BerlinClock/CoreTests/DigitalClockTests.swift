@@ -39,7 +39,7 @@ struct DigitalClockTests {
         
         @Test("Throws OutOfBondError with minutes < 0")
         func outOfBound_negative() throws {
-            #expect(throws: DigitalClock.Error.seconds(.outOfBond)) {
+            #expect(throws: DigitalClock.Error.minutes(.outOfBond)) {
                 _ = try DigitalClock(hours: 0, minutes: -1, seconds: 0)
             }
         }
@@ -56,7 +56,7 @@ struct DigitalClockTests {
         
         @Test("Throws OutOfBondError with hours < 0")
         func outOfBound_negative() throws {
-            #expect(throws: DigitalClock.Error.seconds(.outOfBond)) {
+            #expect(throws: DigitalClock.Error.hours(.outOfBond)) {
                 _ = try DigitalClock(hours: -1, minutes: 0, seconds: 0)
             }
         }
