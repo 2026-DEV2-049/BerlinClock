@@ -10,6 +10,7 @@ import SwiftUI
 
 extension BerlinClockView {
     struct Model {
+        let secondViewModel = SecondView.Model()
     }
 }
 
@@ -18,10 +19,10 @@ struct BerlinClockView: View {
     var body: some View {
         TimelineView(.periodic(from: .now, by: 1)) { context in
             VStack(spacing: 20) {
-                SecondView()
+                SecondView(model: model.secondViewModel)
                 HourView()
                 MinuteView()
-                Text(context.date, format: .dateTime.hour().minute())
+                Text(context.date, format: .dateTime.hour().minute().second())
             }
         }
         .padding()

@@ -7,13 +7,23 @@
 
 
 import SwiftUI
+import Combine
+
+extension SecondView {
+    class Model: ObservableObject {
+        @Published var color: Color = .red
+    }
+}
 
 struct SecondView: View {
+    @StateObject var model: Model
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Circle()
+            .fill(model.color)
+            .stroke(.black)
     }
 }
 
 #Preview {
-    SecondView()
+    SecondView(model: SecondView.Model())
 }
