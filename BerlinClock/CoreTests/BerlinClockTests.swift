@@ -21,6 +21,11 @@ struct BerlinClockTests {
             }
         }
         
+        @Test("Throws invalid character")
+        func InvalidSecondCount() {
+            #expect(throws: BerlinClock.Error.seconds(.invalidCount)) {
+                let InvalidSecondCharacter = "XYZ"
+                _ = try BerlinClock(seconds: InvalidSecondCount, singleMinute: "OOOO", fiveMinute: "OOOOOOOOOOO", singleHour: "0000", fiveHour: "0000")
             }
         }
     }
