@@ -19,7 +19,7 @@ public struct BerlinClock {
         seconds + fiveHour + singleHour + fiveMinute + singleMinute
     }
     
-    init(seconds: String, singleMinute: String, fiveMinute: String, singleHour: String, fiveHour: String) {
+    public init(seconds: String, singleMinute: String, fiveMinute: String, singleHour: String, fiveHour: String) {
         self.seconds = seconds
         self.singleMinute = singleMinute
         self.fiveMinute = fiveMinute
