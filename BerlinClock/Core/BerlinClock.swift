@@ -45,12 +45,12 @@ public struct BerlinClock {
         guard Self.isComposedOnlyOfSpecificLetters(fiveMinute, allowedLetters: "OYR") else { throw Error.fiveMinute(.invalidCharacters) }
         self.fiveMinute = fiveMinute
         
-        guard singleHour.count == 5 else { throw Error.singleHour(.invalidLength) }
-        guard Self.isComposedOnlyOfSpecificLetters(singleHour, allowedLetters: "RRROOOO") else { throw Error.singleHour(.invalidCharacters) }
+        guard singleHour.count == 4 else { throw Error.singleHour(.invalidLength) }
+        guard Self.isComposedOnlyOfSpecificLetters(singleHour, allowedLetters: "OR") else { throw Error.singleHour(.invalidCharacters) }
         self.singleHour = singleHour
         
-        guard fiveHour.count == 5 else { throw Error.fiveHour(.invalidLength) }
-        guard Self.isComposedOnlyOfSpecificLetters(fiveHour, allowedLetters: "RRROOOO") else { throw Error.fiveHour(.invalidCharacters) }
+        guard fiveHour.count == 4 else { throw Error.fiveHour(.invalidLength) }
+        guard Self.isComposedOnlyOfSpecificLetters(fiveHour, allowedLetters: "OR") else { throw Error.fiveHour(.invalidCharacters) }
         self.fiveHour = fiveHour
     }
     
