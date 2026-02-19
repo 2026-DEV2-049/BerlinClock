@@ -10,7 +10,7 @@ import Testing
 @testable import Core
 
 struct BerlinClockTests {
-
+    
     @Suite("String init")
     struct StringInitTests {
         @Test("Empty string throws invalid length")
@@ -42,6 +42,12 @@ struct BerlinClockTests {
                 let stringWithTooManyCharacters = String(repeating: "B", count: 24)
                 _ = try BerlinClock(berlinClockString: stringWithTooManyCharacters)
             }
+        }
+        
+        @Test("Valid init", arguments: ["YOOOOOOOOOOOOOOOOOOOOOOO", "ORRRRRRROYYRYYRYYRYYYYYY", "YRRROROOOYYRYYRYYRYOOOOO", "ORROOROOOYYRYYRYOOOOYYOO"])
+        func validInit(berlinClockString: String) {
+            let berlinClock = try! BerlinClock(berlinClockString: berlinClockString)
+            #expect(berlinClock.fullString == berlinClockString)
         }
     }
     

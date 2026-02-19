@@ -37,11 +37,11 @@ public struct BerlinClock {
         guard berlinClockString.count == 24 else { throw Error.berlinClockString(.invalidLength) }
         guard berlinClockString.isComposedOnlyOf("OYR") else { throw Error.berlinClockString(.invalidCharacters) }
         
-        self.seconds = berlinClockString.sliceString(start: 0, end: 2)
-        self.singleHour = berlinClockString.sliceString(start: 6, end: 10)
-        self.fiveHour = berlinClockString.sliceString(start: 2, end: 6)
-        self.fiveMinute = berlinClockString.sliceString(start: 10, end: 16)
-        self.singleMinute = berlinClockString.sliceString(start: 16, end: 20)
+        self.seconds = berlinClockString.sliceString(start: 0, end: 1)
+        self.singleHour = berlinClockString.sliceString(start: 5, end: 9)
+        self.fiveHour = berlinClockString.sliceString(start: 1, end: 5)
+        self.fiveMinute = berlinClockString.sliceString(start: 9, end: 20)
+        self.singleMinute = berlinClockString.sliceString(start: 20, end: 24)
     }
     
     public init(seconds: String, singleMinute: String, fiveMinute: String, singleHour: String, fiveHour: String) throws {
@@ -67,7 +67,7 @@ public struct BerlinClock {
     }
 }
 
-extension String {
+private extension String {
     func isComposedOnlyOf(_ allowedLetters: String) -> Bool {
         let allowedSet = Set(allowedLetters)
         return self.allSatisfy { allowedSet.contains($0) }
