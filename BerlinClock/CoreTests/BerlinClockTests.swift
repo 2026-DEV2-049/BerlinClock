@@ -35,6 +35,14 @@ struct BerlinClockTests {
                 _ = try BerlinClock(berlinClockString: stringWithTooManyCharacters)
             }
         }
+        
+        @Test("Invalid charactes throws invalidCharacters error")
+        func InvalidString() {
+            #expect(throws: BerlinClock.Error.berlinClockString(.invalidCharacters)) {
+                let stringWithTooManyCharacters = String(repeating: "O", count: 24)
+                _ = try BerlinClock(berlinClockString: stringWithTooManyCharacters)
+            }
+        }
     }
     
     @Suite("Seconds init")
