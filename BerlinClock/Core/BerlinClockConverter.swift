@@ -17,16 +17,14 @@ public enum BerlinClockConverter {
     /// 23:59:59    ORRRRRRROYYRYYRYYRYYYYYY
     /// 16:50:06    YRRROROOOYYRYYRYYRYOOOOO
     /// 11:37:01    ORROOROOOYYRYYRYOOOOYYOO
-    public static func berlinClock(from date: Date) -> BerlinClock {
-        let calendar = Calendar.current
+    public static func berlinClock(from digitalClock: DigitalClock) -> BerlinClock {
+        let seconds = SecondsConverter.string(from: digitalClock.seconds)
         
-        let seconds = SecondsConverter.string(from: calendar.component(.second, from: date))
-        
-        let minutes = calendar.component(.minute, from: date)
+        let minutes = digitalClock.minutes
         let singleMinute = MinuteConverter.singleMinuteString(from: minutes)
         let fiveMinute = MinuteConverter.fiveMinuteString(from: minutes)
         
-        let hours = calendar.component(.hour, from: date)
+        let hours = digitalClock.hours
         let singleHour = HourConverter.singleHourString(from: hours)
         let fiveHour = HourConverter.fiveHourString(from: hours)
         
@@ -34,7 +32,11 @@ public enum BerlinClockConverter {
     }
     
     /// The change to using Berlin Time has gone so well that we've decided to introduce it everywhere, from the clocks on the microwaves to the company-approved wristwatches. Unfortunately, people are having trouble quickly deciphering the current time which is having a detrimental effect on productivity. As such, we need to create a converter that takes a Berlin Time and returns a Digital Time.
-    static public func date(from berlinClock: BerlinClock) -> Date {
-        return Date()
+    /// YOOOOOOOOOOOOOOOOOOOOOOO    00:00:00
+    /// ORRRRRRROYYRYYRYYRYYYYYY    23:59:59
+    /// YRRROROOOYYRYYRYYRYOOOOO    16:50:06
+    /// ORROOROOOYYRYYRYOOOOYYOO    11:37:01
+    static public func date(from berlinClock: BerlinClock) -> DigitalClock {
+        DigitalClock(hours: 0, minutes: 0, seconds: 0)
     }
 }
