@@ -12,7 +12,7 @@ import SwiftUI
 struct BerlinClockApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BerlinClockView()
         }
     }
 }
