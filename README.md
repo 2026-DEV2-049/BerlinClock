@@ -22,3 +22,11 @@ To solve this, additional information should be provided from the BerlinClock's 
 # Current assumption to solve this limitation: 
 Seconds from the converted Digital Time (Feature 2) will either be 0 or 1 seconds !
 
+# Architecture:
+One module named Core contains all the conversion's logic.
+
+The Core module has a 100% test coverage which demonstrates all use-cases from features 1 and 2.
+
+The main-application consumes the Core module for performing all conversions.
+
+The Core module is the only dependency. 
