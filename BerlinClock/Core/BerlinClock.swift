@@ -35,7 +35,7 @@ public struct BerlinClock {
     
     public init(berlinClockString: String) throws {
         guard berlinClockString.count == 24 else { throw Error.berlinClockString(.invalidLength) }
-        guard berlinClockString.isComposedOnlyOf("OYGRYB") else { throw Error.berlinClockString(.invalidCharacters) }
+        guard berlinClockString.isComposedOnlyOf("OYR") else { throw Error.berlinClockString(.invalidCharacters) }
         
         self.seconds = berlinClockString.sliceString(start: 0, end: 2)
         self.singleHour = berlinClockString.sliceString(start: 6, end: 10)
