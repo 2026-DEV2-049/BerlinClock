@@ -21,6 +21,7 @@ public struct BerlinClock {
         case fiveMinute(Reason)
         case singleHour(Reason)
         case fiveHour(Reason)
+        case berlinClockString(Reason)
         
         public enum Reason {
             case invalidLength
@@ -30,6 +31,17 @@ public struct BerlinClock {
     
     public var fullString: String {
         seconds + fiveHour + singleHour + fiveMinute + singleMinute
+    }
+    
+    public init(berlinClockString: String) throws {
+        guard berlinClockString.count == 20 else { throw Error.berlinClockString(.invalidLength) }
+        guard berlinClockString.isComposedOnlyOf("OYGRYB") else { throw Error.berlinClockString(.invalidCharacters) }
+        
+        self.seconds = berlinClockString.sliceString(start: 0, end: 2)
+        self.singleHour = berlinClockString.sliceString(start: 6, end: 10)
+        self.fiveHour = berlinClockString.sliceString(start: 2, end: 6)
+        self.fiveMinute = berlinClockString.sliceString(start: 10, end: 16)
+        self.singleMinute = berlinClockString.sliceString(start: 16, end: 20)
     }
     
     public init(seconds: String, singleMinute: String, fiveMinute: String, singleHour: String, fiveHour: String) throws {
@@ -59,5 +71,10 @@ extension String {
     func isComposedOnlyOf(_ allowedLetters: String) -> Bool {
         let allowedSet = Set(allowedLetters)
         return self.allSatisfy { allowedSet.contains($0) }
+    }
+    
+    func sliceString(start: Int, end: Int) -> String {
+        let data = Array(self)
+        return String(data[start..<end])
     }
 }
