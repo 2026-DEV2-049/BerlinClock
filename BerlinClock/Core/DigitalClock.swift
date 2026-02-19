@@ -23,6 +23,11 @@ public struct DigitalClock {
         }
     }
     
+    /// This initializer validates the input values to ensure they form a valid time component.
+    /// - Parameters:
+    ///   - hours: The number of hours in 24 hours format. Values outside the range range 0-24 throws
+    ///   - minutes: The number of minutes. Values outside the range range 0-60 throws
+    ///   - seconds: The number of seconds. Values outside the range range 0-60 throws
     public init(hours: Int, minutes: Int, seconds: Int) throws {
         guard hours < 24 && hours >= 0 else { throw Error.hours(.outOfBond) }
         self.hours = hours
