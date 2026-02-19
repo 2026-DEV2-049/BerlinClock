@@ -10,11 +10,10 @@ import SwiftUI
 
 struct BerlinClockView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TimelineView(.periodic(from: .now, by: 1)) { context in
+            VStack(spacing: 20) {
+                Text(context.date, format: .dateTime.hour().minute().second())
+            }
         }
         .padding()
     }
