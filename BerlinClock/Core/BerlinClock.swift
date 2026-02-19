@@ -23,7 +23,7 @@ public struct BerlinClock {
         case fiveHour(Reason)
         
         public enum Reason {
-            case invalidCount
+            case invalidLength
             case invalidCharacters
         }
     }
@@ -33,23 +33,23 @@ public struct BerlinClock {
     }
     
     public init(seconds: String, singleMinute: String, fiveMinute: String, singleHour: String, fiveHour: String) throws {
-        guard seconds.count == 1 else { throw Error.seconds(.invalidCount) }
+        guard seconds.count == 1 else { throw Error.seconds(.invalidLength) }
         guard Self.isComposedOnlyOfSpecificLetters(seconds, allowedLetters: "YO") else { throw Error.seconds(.invalidCharacters) }
         self.seconds = seconds
         
-        guard singleMinute.count == 4 else { throw Error.singleMinute(.invalidCount) }
+        guard singleMinute.count == 4 else { throw Error.singleMinute(.invalidLength) }
         guard Self.isComposedOnlyOfSpecificLetters(singleMinute, allowedLetters: "OY") else { throw Error.singleMinute(.invalidCharacters) }
         self.singleMinute = singleMinute
         
-        guard fiveMinute.count == 5 else { throw Error.fiveMinute(.invalidCount) }
+        guard fiveMinute.count == 5 else { throw Error.fiveMinute(.invalidLength) }
         guard Self.isComposedOnlyOfSpecificLetters(fiveMinute, allowedLetters: "RRROOOO") else { throw Error.fiveMinute(.invalidCharacters) }
         self.fiveMinute = fiveMinute
         
-        guard singleHour.count == 5 else { throw Error.singleHour(.invalidCount) }
+        guard singleHour.count == 5 else { throw Error.singleHour(.invalidLength) }
         guard Self.isComposedOnlyOfSpecificLetters(singleHour, allowedLetters: "RRROOOO") else { throw Error.singleHour(.invalidCharacters) }
         self.singleHour = singleHour
         
-        guard fiveHour.count == 5 else { throw Error.fiveHour(.invalidCount) }
+        guard fiveHour.count == 5 else { throw Error.fiveHour(.invalidLength) }
         guard Self.isComposedOnlyOfSpecificLetters(fiveHour, allowedLetters: "RRROOOO") else { throw Error.fiveHour(.invalidCharacters) }
         self.fiveHour = fiveHour
     }
