@@ -11,6 +11,32 @@ import Testing
 
 struct BerlinClockTests {
 
+    @Suite("String init")
+    struct StringInitTests {
+        @Test("Empty string throws invalid length")
+        func EmptyString() {
+            #expect(throws: BerlinClock.Error.berlinClockString(.invalidLength)) {
+                _ = try BerlinClock(berlinClockString: "")
+            }
+        }
+        
+        @Test("Too long string throws invalid length - Max = 24")
+        func bigString() {
+            #expect(throws: BerlinClock.Error.berlinClockString(.invalidLength)) {
+                let stringWithTooManyCharacters = String(repeating: "X", count: 25)
+                _ = try BerlinClock(berlinClockString: stringWithTooManyCharacters)
+            }
+        }
+        
+        @Test("Too short string throws invalid length - Max = 24")
+        func shortString() {
+            #expect(throws: BerlinClock.Error.berlinClockString(.invalidLength)) {
+                let stringWithTooManyCharacters = String(repeating: "X", count: 10)
+                _ = try BerlinClock(berlinClockString: stringWithTooManyCharacters)
+            }
+        }
+    }
+    
     @Suite("Seconds init")
     struct SecondsTests {
         @Test("Throws invalid length")
