@@ -40,12 +40,12 @@ public enum BerlinClockConverter {
         //  NOTE: The seconds could never be translated correctly with the current setup
         //  To solve this, additional input has to be provided from the BerlinClock
         //  ASSUMPTION: Returns 0 or 1 seconds for now!
-        let seconds = berlinClock.seconds == "B" ? 0 : 1
+        let seconds = berlinClock.seconds == "Y" ? 0 : 1
         
-        let fiveMinutes = berlinClock.fiveMinute.filter { $0 == "Y" || $0 == "R" }.count * 4
+        let fiveMinutes = berlinClock.fiveMinute.filter { $0 == "Y" || $0 == "R" }.count * 5
         let singleMinutes = berlinClock.singleMinute.filter { $0 == "Y" }.count
         
-        let fiveHours = berlinClock.fiveHour.filter { $0 == "R" }.count * 4
+        let fiveHours = berlinClock.fiveHour.filter { $0 == "R" }.count * 5
         let singleHours = berlinClock.singleHour.filter { $0 == "R" }.count
         
         return try DigitalClock(hours: fiveHours+singleHours, minutes: fiveMinutes+singleMinutes, seconds: seconds)
