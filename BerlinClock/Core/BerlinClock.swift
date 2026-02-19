@@ -33,7 +33,7 @@ public struct BerlinClock {
     }
     
     public init(seconds: String, singleMinute: String, fiveMinute: String, singleHour: String, fiveHour: String) throws {
-        guard seconds.count == 3 else { throw Error.seconds(.invalidCount) }
+        guard seconds.count == 1 else { throw Error.seconds(.invalidCount) }
         guard Self.isComposedOnlyOfSpecificLetters(seconds, allowedLetters: "YO") else { throw Error.seconds(.invalidCharacters) }
         self.seconds = seconds
         
