@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct DigitalClock {
+public struct DigitalClock: Equatable {
     public let hours: Int
     public let minutes: Int
     public let seconds: Int
