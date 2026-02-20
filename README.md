@@ -60,8 +60,8 @@ To solve this, additional information should be provided from the BerlinClock's 
 Seconds from the converted Digital Time (Feature 2) will either be 0 or 1 second.
 
 # Areas of improvement:
-1. Add a conveniance init to create a `DigitalClock` from a Date.
+1. Add a convenience init to create a `DigitalClock` from a `Date` object.
 2. Colors are currently hardcoded into each view. They could be defined and provided by a dedicated class.
-3. Mapping strings to colors ("Y" -> .yellow) is currently done inside the **Main-application**. The mapping could be implemented inside the **Core** module.
+3. Mapping strings to colors ("Y" -> .yellow) is currently done inside the **Main-application**. That mapping could be implemented inside the **Core** module.
 4. All views are refreshed each second. This could be easily improved by updating viewModels by comparing oldValue against newValue.
 5. Errors are not handled in case a `BerlinClock` conversion fails. Currently, if a conversion fails --> The current second is simply bypassed.
