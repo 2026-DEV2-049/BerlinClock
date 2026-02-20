@@ -26,7 +26,7 @@ extension BerlinClockView {
         }
     }
     
-    enum BerlinClockFactory {
+    private enum BerlinClockFactory {
         static func create(from date: Date) -> BerlinClock? {
             let calendar = Calendar.current
             let components = calendar.dateComponents([.second, .minute, .hour], from: date)
@@ -40,13 +40,13 @@ extension BerlinClockView {
         }
     }
     
-    enum SecondsAdapter {
+    private enum SecondsAdapter {
         static func color(from berlinClockSeconds: String) -> Color {
             berlinClockSeconds == "Y" ? .yellow : .clear
         }
     }
     
-    enum HoursAdapter {
+    private enum HoursAdapter {
         static func singleHourRectangleModels(from berlinClockSingleHour: String) -> [RectangleView.Model] {
             berlinClockSingleHour.map { RectangleView.Model(color: $0 == "R" ? .red : .clear) }
         }
@@ -56,7 +56,7 @@ extension BerlinClockView {
         }
     }
     
-    enum MinutesAdapter {
+    private enum MinutesAdapter {
         static func singleMinuteRectangleModels(from berlinClockSingleMinute: String) -> [RectangleView.Model] {
             berlinClockSingleMinute.map { RectangleView.Model(color: $0 == "Y" ? .yellow : .clear) }
         }
