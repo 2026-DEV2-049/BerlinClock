@@ -10,7 +10,7 @@ internal import Combine
 
 extension SecondsView {
     class Model: ObservableObject {
-        @Published var color: Color = .red
+        @Published var color: Color = .clear
     }
 }
 
