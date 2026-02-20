@@ -7,13 +7,26 @@
 
 
 import SwiftUI
+internal import Combine
+
+extension HoursView {
+    final class Model: ObservableObject {
+        @Published var rectangleModels: [RectangleView.Model] = [RectangleView.Model(color: .red),
+                                                                 RectangleView.Model(color: .green)]
+    }
+}
 
 struct HoursView: View {
+    @StateObject var model: Model
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            ForEach(model.rectangleModels) { rectangleViewModel in
+                RectangleView(model: rectangleViewModel)
+            }
+        }
     }
 }
 
 #Preview {
-    HoursView()
+    HoursView(model: HoursView.Model())
 }

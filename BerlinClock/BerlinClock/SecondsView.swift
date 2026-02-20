@@ -7,7 +7,7 @@
 
 
 import SwiftUI
-import Combine
+internal import Combine
 
 extension SecondsView {
     class Model: ObservableObject {

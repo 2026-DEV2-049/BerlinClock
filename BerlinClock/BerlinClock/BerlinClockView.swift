@@ -12,6 +12,7 @@ import Core
 extension BerlinClockView {
     struct Model {
         let secondViewModel = SecondsView.Model()
+        let hourViewModel = HoursView.Model()
         
         func update(date: Date) {
             let calendar = Calendar.current
@@ -23,12 +24,20 @@ extension BerlinClockView {
             guard let digitalClock = try? DigitalClock(hours: hours, minutes: minutes, seconds: seconds) else { return }
             guard let berlinClock = try? BerlinClockConverter.berlinClock(from: digitalClock) else { return }
             secondViewModel.color = SecondsAdapter.color(from: berlinClock.seconds)
+            
+            hourViewModel.rectangleModels = HoursAdapter.singleHourRectangleModels(from: berlinClock.singleHour)
         }
     }
     
     enum SecondsAdapter {
         static func color(from berlinClockSeconds: String) -> Color {
-            berlinClockSeconds == "Y" ? .blue : .clear
+            berlinClockSeconds == "Y" ? .yellow : .clear
+        }
+    }
+    
+    enum HoursAdapter {
+        static func singleHourRectangleModels(from berlinClockSingleHour: String) -> [RectangleView.Model] {
+            berlinClockSingleHour.map { RectangleView.Model(color: $0 == "R" ? .red : .clear) }
         }
     }
 }
@@ -39,7 +48,7 @@ struct BerlinClockView: View {
         TimelineView(.periodic(from: .now, by: 1)) { context in
             VStack(spacing: 20) {
                 SecondsView(model: model.secondViewModel)
-                HoursView()
+                HoursView(model: model.hourViewModel)
                 MinutesView()
                 Text(context.date, format: .dateTime.hour().minute().second())
             }
