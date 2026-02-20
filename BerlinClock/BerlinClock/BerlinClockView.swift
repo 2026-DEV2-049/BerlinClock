@@ -11,7 +11,7 @@ import Core
 
 extension BerlinClockView {
     struct Model {
-        let secondViewModel = SecondView.Model()
+        let secondViewModel = SecondsView.Model()
         
         func update(date: Date) {
             let calendar = Calendar.current
@@ -32,9 +32,9 @@ struct BerlinClockView: View {
     var body: some View {
         TimelineView(.periodic(from: .now, by: 1)) { context in
             VStack(spacing: 20) {
-                SecondView(model: model.secondViewModel)
-                HourView()
-                MinuteView()
+                SecondsView(model: model.secondViewModel)
+                HoursView()
+                MinutesView()
                 Text(context.date, format: .dateTime.hour().minute().second())
             }
             .onChange(of: context.date) { oldValue, newValue in

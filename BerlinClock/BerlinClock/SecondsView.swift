@@ -1,5 +1,5 @@
 //
-//  SecondView.swift
+//  SecondsView.swift
 //  BerlinClock
 //
 //  Created by 2026-DEV2-049 on 19/02/2026.
@@ -9,13 +9,13 @@
 import SwiftUI
 import Combine
 
-extension SecondView {
+extension SecondsView {
     class Model: ObservableObject {
         @Published var color: Color = .red
     }
 }
 
-struct SecondView: View {
+struct SecondsView: View {
     @StateObject var model: Model
     var body: some View {
         Circle()
@@ -25,5 +25,5 @@ struct SecondView: View {
 }
 
 #Preview {
-    SecondView(model: SecondView.Model())
+    SecondsView(model: SecondsView.Model())
 }
