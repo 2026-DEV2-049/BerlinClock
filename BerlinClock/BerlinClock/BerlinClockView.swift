@@ -22,7 +22,13 @@ extension BerlinClockView {
             
             guard let digitalClock = try? DigitalClock(hours: hours, minutes: minutes, seconds: seconds) else { return }
             guard let berlinClock = try? BerlinClockConverter.berlinClock(from: digitalClock) else { return }
-            secondViewModel.color = berlinClock.seconds == "Y" ? .blue : .clear
+            secondViewModel.color = SecondsAdapter.color(from: berlinClock.seconds)
+        }
+    }
+    
+    enum SecondsAdapter {
+        static func color(from berlinClockSeconds: String) -> Color {
+            berlinClockSeconds == "Y" ? .blue : .clear
         }
     }
 }
