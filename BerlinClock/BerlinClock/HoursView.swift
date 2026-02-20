@@ -11,17 +11,24 @@ internal import Combine
 
 extension HoursView {
     final class Model: ObservableObject {
-        @Published var rectangleModels: [RectangleView.Model] = [RectangleView.Model(color: .red),
-                                                                 RectangleView.Model(color: .green)]
+        @Published var singleHourRectangleModels: [RectangleView.Model] = []
+        @Published var fiveHourRectangleModels: [RectangleView.Model] = []
     }
 }
 
 struct HoursView: View {
     @StateObject var model: Model
     var body: some View {
-        HStack {
-            ForEach(model.rectangleModels) { rectangleViewModel in
-                RectangleView(model: rectangleViewModel)
+        VStack {
+            HStack {
+                ForEach(model.fiveHourRectangleModels) { rectangleViewModel in
+                    RectangleView(model: rectangleViewModel)
+                }
+            }
+            HStack {
+                ForEach(model.singleHourRectangleModels) { rectangleViewModel in
+                    RectangleView(model: rectangleViewModel)
+                }
             }
         }
     }

@@ -25,7 +25,8 @@ extension BerlinClockView {
             guard let berlinClock = try? BerlinClockConverter.berlinClock(from: digitalClock) else { return }
             secondViewModel.color = SecondsAdapter.color(from: berlinClock.seconds)
             
-            hourViewModel.rectangleModels = HoursAdapter.singleHourRectangleModels(from: berlinClock.singleHour)
+            hourViewModel.singleHourRectangleModels = HoursAdapter.singleHourRectangleModels(from: berlinClock.singleHour)
+            hourViewModel.fiveHourRectangleModels = HoursAdapter.fiveHourRectangleModels(from: berlinClock.fiveHour)
         }
     }
     
@@ -38,6 +39,10 @@ extension BerlinClockView {
     enum HoursAdapter {
         static func singleHourRectangleModels(from berlinClockSingleHour: String) -> [RectangleView.Model] {
             berlinClockSingleHour.map { RectangleView.Model(color: $0 == "R" ? .red : .clear) }
+        }
+        
+        static func fiveHourRectangleModels(from berlinClockFiveHour: String) -> [RectangleView.Model] {
+            berlinClockFiveHour.map { RectangleView.Model(color: $0 == "R" ? .red : .clear) }
         }
     }
 }
