@@ -7,13 +7,33 @@
 
 
 import SwiftUI
+internal import Combine
+
+extension MinutesView {
+    final class Model: ObservableObject {
+        @Published var singleMinuteRectangleModels: [RectangleView.Model] = []
+        @Published var fiveMinuteRectangleModels: [RectangleView.Model] = []
+    }
+}
 
 struct MinutesView: View {
+    @StateObject var model: Model
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                ForEach(model.fiveMinuteRectangleModels) { rectangleViewModel in
+                    RectangleView(model: rectangleViewModel)
+                }
+            }
+            HStack {
+                ForEach(model.singleMinuteRectangleModels) { rectangleViewModel in
+                    RectangleView(model: rectangleViewModel)
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    MinutesView()
+    MinutesView(model: MinutesView.Model())
 }
