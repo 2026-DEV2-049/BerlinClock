@@ -13,6 +13,11 @@ Feature 2 - Converting Berlin Time to Digital Time
 - Swift 5+
 - Xcode 26+
 
+# Running the project
+- Open `BerlinClock.xcodeproj`
+- Select target `BerlinClock`
+- Run (CMD+R)
+
 # Quick Start / Usage
 Feature 1:
 ```
