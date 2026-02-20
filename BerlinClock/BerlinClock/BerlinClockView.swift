@@ -16,14 +16,7 @@ extension BerlinClockView {
         let minuteViewModel = DoubleRectangleView.Model()
         
         func update(date: Date) {
-            let calendar = Calendar.current
-            let components = calendar.dateComponents([.second, .minute, .hour], from: date)
-            guard let seconds = components.second else { return }
-            guard let minutes = components.minute else { return }
-            guard let hours = components.hour else { return }
-            
-            guard let digitalClock = try? DigitalClock(hours: hours, minutes: minutes, seconds: seconds) else { return }
-            guard let berlinClock = try? BerlinClockConverter.berlinClock(from: digitalClock) else { return }
+            guard let berlinClock = BerlinClockFactory.create(from: date) else { return }
             secondViewModel.color = SecondsAdapter.color(from: berlinClock.seconds)
             
             hourViewModel.topRectangleViewModels = HoursAdapter.fiveHourRectangleModels(from: berlinClock.fiveHour)
@@ -31,6 +24,20 @@ extension BerlinClockView {
 
             minuteViewModel.topRectangleViewModels = HoursAdapter.fiveHourRectangleModels(from: berlinClock.fiveHour)
             minuteViewModel.bottomRectangleViewModels = HoursAdapter.singleHourRectangleModels(from: berlinClock.singleHour)
+        }
+    }
+    
+    enum BerlinClockFactory {
+        static func create(from date: Date) -> BerlinClock? {
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.second, .minute, .hour], from: date)
+            guard let seconds = components.second else { return nil }
+            guard let minutes = components.minute else { return nil }
+            guard let hours = components.hour else { return nil }
+            
+            guard let digitalClock = try? DigitalClock(hours: hours, minutes: minutes, seconds: seconds) else { return nil }
+            guard let berlinClock = try? BerlinClockConverter.berlinClock(from: digitalClock) else { return nil }
+            return berlinClock
         }
     }
     
