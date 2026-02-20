@@ -21,8 +21,8 @@ extension BerlinClockView {
             hourViewModel.topRectangleViewModels = HoursAdapter.fiveHourRectangleModels(from: berlinClock.fiveHour)
             hourViewModel.bottomRectangleViewModels = HoursAdapter.singleHourRectangleModels(from: berlinClock.singleHour)
 
-            minuteViewModel.topRectangleViewModels = HoursAdapter.fiveHourRectangleModels(from: berlinClock.fiveHour)
-            minuteViewModel.bottomRectangleViewModels = HoursAdapter.singleHourRectangleModels(from: berlinClock.singleHour)
+            minuteViewModel.topRectangleViewModels = MinutesAdapter.fiveMinuteRectangleModels(from: berlinClock.fiveMinute)
+            minuteViewModel.bottomRectangleViewModels = MinutesAdapter.singleMinuteRectangleModels(from: berlinClock.singleMinute)
         }
     }
     
@@ -53,6 +53,21 @@ extension BerlinClockView {
         
         static func fiveHourRectangleModels(from berlinClockFiveHour: String) -> [RectangleView.Model] {
             berlinClockFiveHour.map { RectangleView.Model(color: $0 == "R" ? .red : .clear) }
+        }
+    }
+    
+    enum MinutesAdapter {
+        static func singleMinuteRectangleModels(from berlinClockSingleMinute: String) -> [RectangleView.Model] {
+            berlinClockSingleMinute.map { RectangleView.Model(color: $0 == "Y" ? .yellow : .clear) }
+        }
+        
+        static func fiveMinuteRectangleModels(from berlinClockFiveMinute: String) -> [RectangleView.Model] {
+            berlinClockFiveMinute.map { string in
+                var color: Color = .clear
+                if string == "Y" { color = .yellow }
+                else if string == "R" { color = .red }
+                return RectangleView.Model(color: color)
+            }
         }
     }
 }
