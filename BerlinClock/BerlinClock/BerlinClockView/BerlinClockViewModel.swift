@@ -14,6 +14,10 @@ extension BerlinClockView {
         let hourViewModel = DoubleRectangleView.Model()
         let minuteViewModel = DoubleRectangleView.Model()
         
+        init() {
+            update(date: Date())
+        }
+        
         func update(date: Date) {
             guard let berlinClock = BerlinClockFactory.create(from: date) else { return }
             secondViewModel.color = SecondsAdapter.color(from: berlinClock.seconds)
