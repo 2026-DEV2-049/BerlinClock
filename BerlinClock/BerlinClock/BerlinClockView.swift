@@ -12,7 +12,8 @@ import Core
 extension BerlinClockView {
     struct Model {
         let secondViewModel = SecondsView.Model()
-        let hourViewModel = HoursView.Model()
+        let hourViewModel = DoubleRectangleView.Model()
+        let minuteViewModel = DoubleRectangleView.Model()
         
         func update(date: Date) {
             let calendar = Calendar.current
@@ -25,8 +26,11 @@ extension BerlinClockView {
             guard let berlinClock = try? BerlinClockConverter.berlinClock(from: digitalClock) else { return }
             secondViewModel.color = SecondsAdapter.color(from: berlinClock.seconds)
             
-            hourViewModel.singleHourRectangleModels = HoursAdapter.singleHourRectangleModels(from: berlinClock.singleHour)
-            hourViewModel.fiveHourRectangleModels = HoursAdapter.fiveHourRectangleModels(from: berlinClock.fiveHour)
+            hourViewModel.topRectangleViewModels = HoursAdapter.fiveHourRectangleModels(from: berlinClock.fiveHour)
+            hourViewModel.bottomRectangleViewModels = HoursAdapter.singleHourRectangleModels(from: berlinClock.singleHour)
+
+            minuteViewModel.topRectangleViewModels = HoursAdapter.fiveHourRectangleModels(from: berlinClock.fiveHour)
+            minuteViewModel.bottomRectangleViewModels = HoursAdapter.singleHourRectangleModels(from: berlinClock.singleHour)
         }
     }
     
@@ -53,8 +57,8 @@ struct BerlinClockView: View {
         TimelineView(.periodic(from: .now, by: 1)) { context in
             VStack(spacing: 20) {
                 SecondsView(model: model.secondViewModel)
-                HoursView(model: model.hourViewModel)
-                MinutesView()
+                DoubleRectangleView(model: model.hourViewModel)
+                DoubleRectangleView(model: model.minuteViewModel)
                 Text(context.date, format: .dateTime.hour().minute().second())
             }
             .onChange(of: context.date) { oldValue, newValue in

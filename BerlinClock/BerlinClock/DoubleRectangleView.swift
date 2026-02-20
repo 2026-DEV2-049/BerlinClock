@@ -9,24 +9,24 @@
 import SwiftUI
 internal import Combine
 
-extension HoursView {
+extension DoubleRectangleView {
     final class Model: ObservableObject {
-        @Published var singleHourRectangleModels: [RectangleView.Model] = []
-        @Published var fiveHourRectangleModels: [RectangleView.Model] = []
+        @Published var topRectangleViewModels: [RectangleView.Model] = []
+        @Published var bottomRectangleViewModels: [RectangleView.Model] = []
     }
 }
 
-struct HoursView: View {
+struct DoubleRectangleView: View {
     @StateObject var model: Model
     var body: some View {
         VStack {
             HStack {
-                ForEach(model.fiveHourRectangleModels) { rectangleViewModel in
+                ForEach(model.topRectangleViewModels) { rectangleViewModel in
                     RectangleView(model: rectangleViewModel)
                 }
             }
             HStack {
-                ForEach(model.singleHourRectangleModels) { rectangleViewModel in
+                ForEach(model.bottomRectangleViewModels) { rectangleViewModel in
                     RectangleView(model: rectangleViewModel)
                 }
             }
@@ -35,5 +35,5 @@ struct HoursView: View {
 }
 
 #Preview {
-    HoursView(model: HoursView.Model())
+    DoubleRectangleView(model: DoubleRectangleView.Model())
 }
