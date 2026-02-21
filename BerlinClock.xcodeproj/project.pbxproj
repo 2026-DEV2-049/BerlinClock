@@ -50,9 +50,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1AA36A0B2F4610F400A09FBC /* BerlinClock */ = {
+		1AA36A0B2F4610F400A09FBC /* MainApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BerlinClock;
+			path = MainApp;
 			sourceTree = "<group>";
 		};
 		1ADB684A2F4614F1000AEE76 /* Core */ = {
@@ -97,7 +97,7 @@
 		1AA36A002F4610F400A09FBC = {
 			isa = PBXGroup;
 			children = (
-				1AA36A0B2F4610F400A09FBC /* BerlinClock */,
+				1AA36A0B2F4610F400A09FBC /* MainApp */,
 				1ADB684A2F4614F1000AEE76 /* Core */,
 				1ADB688A2F4618CE000AEE76 /* CoreTests */,
 				1AA36A0A2F4610F400A09FBC /* Products */,
@@ -142,7 +142,7 @@
 				1ADB685B2F4614F1000AEE76 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				1AA36A0B2F4610F400A09FBC /* BerlinClock */,
+				1AA36A0B2F4610F400A09FBC /* MainApp */,
 			);
 			name = BerlinClock;
 			packageProductDependencies = (
